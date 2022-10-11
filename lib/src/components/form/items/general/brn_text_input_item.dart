@@ -92,6 +92,8 @@ class BrnTextInputFormItem extends StatefulWidget {
   final TextEditingController? controller;
   final bool isInputPwd;
 
+  final FocusNode? focusNode;
+
   /// 背景色
   final Color? backgroundColor;
 
@@ -123,6 +125,7 @@ class BrnTextInputFormItem extends StatefulWidget {
       this.inputFormatters,
       this.onChanged,
       this.controller,
+      this.focusNode,
       this.backgroundColor,
       this.themeData,
       this.isInputPwd = false,
@@ -202,6 +205,7 @@ class BrnTextInputFormItemState extends State<BrnTextInputFormItem> {
                     keyboardType: BrnFormUtil.getInputType(widget.inputType),
                     obscureText: widget.isInputPwd,
                     enabled: widget.isEdit,
+                    focusNode: widget.focusNode,
                     maxLines: 1,
                     maxLength: widget.maxCharCount,
                     style: BrnFormUtil.getIsEditTextStyle(
